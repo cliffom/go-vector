@@ -14,11 +14,19 @@ func TestVector(t *testing.T) {
 }
 
 func TestNormalize(t *testing.T) {
-	v := Vector3D{2, 4, 6}.Normalize()
+	v, _ := Vector3D{2, 4, 6}.Normalize()
 	mag := math.Sqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z)
 
 	if mag != 1 {
 		t.Errorf("sum is %v; want 1 or less", mag)
+	}
+}
+
+func TestNormalizeZeroVectir(t *testing.T) {
+	_, err := Vector3D{0, 0, 0}.Normalize()
+
+	if err == nil {
+		t.Errorf("expected an error")
 	}
 }
 
