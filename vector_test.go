@@ -12,6 +12,18 @@ func almostEqual(a, b, epsilon float64) bool {
 	return math.Abs(a-b) <= epsilon
 }
 
+func TestNewVector3D(t *testing.T) {
+	v1 := Vector3D{3, 4, 0}
+	v2 := NewVector3D(3, 4, 0)
+
+	vSum := v1.Subtract(v2)
+	vz := Vector3D{0, 0, 0}
+
+	if vSum != vz {
+		t.Errorf("v1 not equal to v2; expected zero vector but got: %v", vSum)
+	}
+}
+
 func TestMagnitude(t *testing.T) {
 	v := Vector3D{3, 4, 0}
 	expected := 5.0

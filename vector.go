@@ -11,6 +11,11 @@ type Vector3D struct {
 	X, Y, Z float64
 }
 
+// NewVector returns a new Vector3D
+func NewVector3D(x, y, z float64) Vector3D {
+	return Vector3D{X: x, Y: y, Z: z}
+}
+
 // Magnitude returns the magnitude of a vector
 func (v Vector3D) Magnitude() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z)
